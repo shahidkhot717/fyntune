@@ -69,7 +69,7 @@ while ($row  = mysqli_fetch_assoc($result) ) {?>
 
 		    <small>Date Posted:<?php echo $row['date'];?></small>
 		    <a href="delete.php?id=<?php echo $row['id'];?>" class="btn btn-danger">Delete</a>
-		    <a href="delete.php?id=<?php echo $row['id'];?>" class="btn btn-primary">Edit</a> 
+		    <a href="update.php?id=<?php echo $row['id'];?>" class="btn btn-primary">Edit</a> 
 
 		    
 		  </div>

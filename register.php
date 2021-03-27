@@ -8,6 +8,7 @@
 	// 	echo "f";
 		// }
 	if (isset($_POST['submit'])) {
+		if (!empty($email) || !empty($password)) {
 		$email = mysqli_real_escape_string($con,$_POST['email']);
 	$password = mysqli_real_escape_string($con,$_POST['password']);
 
@@ -17,7 +18,7 @@
 	$query = "INSERT INTO `user`( `email`, `password`) VALUES ('$email','$hash_pass')";
 
 	mysqli_query($con,$query);
-	}
+	}}
 
 	
 
@@ -41,6 +42,14 @@
 		
 				<label>Email:</label>
 				<input type="email" name="email" class="form-control">
+				<small style="color: red;"><?php 
+				if (isset($_POST['submit'])) {
+					# code...
+				
+				if (empty($email) || empty($password)) {
+			echo " gthis field is required";
+		}
+	}?></small><br>
 
 				<label>Password:</label>
 				<input type="Password" name="password" class="form-control">
@@ -50,7 +59,7 @@
 				  class="btn btn-primary mt-2">
 				  Submit</button>
 				  <br>
-				<small >Already hve an account? <a href="login.php">Login</a></small>
+				<small  >Already hve an account? <a href="login.php">Login</a></small>
 
 			</form>
 		</div>

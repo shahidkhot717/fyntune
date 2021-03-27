@@ -66,12 +66,12 @@
 		
 				<label>Email:</label>
 				<input type="email" name="email" class="form-control">
-				<small><?php 
+				<small style="color: red;"><?php 
 				if (isset($_POST['submit'])) {
 					# code...
 				
 				if (empty($email) || empty($password)) {
-			echo " required";
+			echo " this field is required";
 		}
 	}?></small><br>
 				

@@ -59,6 +59,7 @@
 		
 				<label>Title:</label>
 				<input type="text" name="title" class="form-control">
+				<br>
 
 				<label>Auther name:</label>
 				<input type="text" name="name" class="form-control">

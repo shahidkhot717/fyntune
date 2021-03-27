@@ -1,13 +1,3 @@
-<?php 
-include 'connection.php';
-
-header('location:post.php');
-
-
-// UPDATE `post` SET `id`=[value-1],`title`=[value-2],`username`=[value-3],`content`=[value-4],`date`=[value-5],`image`=[value-6] WHERE 1
-
-
-?>
 
 
 
@@ -15,19 +5,16 @@ header('location:post.php');
 	session_start();
 	include 'connection.php';
 
-	// if ($con) {
-	// 	echo "s";
-	// }else{
-	// 	echo "f";
-	// }
+	
 
-	$getid = $_GET['id'];
-		$showquery = 'SELECT * from post where id={$getid}';
-		$showdata = mysqli_query($con,$query);
-		$arraydat = mysqli_fetch_array($showdata);
+	$id = $_GET['id'];
+		$showquery = "SELECT * from post where id={$id}";
+		$showdata = mysqli_query($con,$showquery);
+		 $arraydata = mysqli_fetch_array($showdata);
 	
 
 	if (isset($_POST['submit'])) {
+	$updateids = $_GET['id'];
 
 		
 		$title = mysqli_real_escape_string($con,$_POST['title']);
@@ -41,9 +28,9 @@ header('location:post.php');
 	
 	
 
-	$query = "INSERT INTO `post`( `title`, `username`, `content`, `date`) VALUES ('$title','$username','$content','$date')";
+	// $query = "INSERT INTO `post`( `title`, `username`, `content`, `date`) VALUES ('$title','$username','$content','$date')";
 
-
+	$query = " UPDATE post SET id='$updateids',title='$title',username = '$username',content='$content' WHERE id = $updateids";
 
 	mysqli_query($con,$query);
 	}
@@ -66,24 +53,27 @@ header('location:post.php');
 		<h1>Create Post</h1>
 		<div class="form-group m-auto">
 			<form 
-			action="post.php" method="post">
+			action="update.php" method="post">
 		
 				<label>Title:</label>
-				<input type="text" name="title" value="<?php 
-				$arraydat['title']; ?>" class="form-control">
+				<input type="text" name="title" 
+				value="<?php 
+				echo $arraydata['title']; ?>" class="form-control">
 
 				<label>Auther name:</label>
-				<input type="text" name="name" class="form-control">
+				<input type="text" name="name" class="form-control"
+				value="<?php echo $arraydata['username'];?>">
 
 				
 				
 				<label>content:</label>
-				<textarea class="form-control" name="content"></textarea>
+				<textarea class="form-control" name="content" value="<?php 
+				echo $arraydata['content']; ?>"></textarea>
 
 				  <button type="submit" 
 				  name="submit" 
 				  class="btn btn-primary mt-2">
-				  Submit</button>
+				  Update</button>
 				  
 		
 
