@@ -1,3 +1,14 @@
+<?php 
+include 'connection.php';
+
+header('location:post.php');
+
+
+// UPDATE `post` SET `id`=[value-1],`title`=[value-2],`username`=[value-3],`content`=[value-4],`date`=[value-5],`image`=[value-6] WHERE 1
+
+
+?>
+
 
 
 <?php 
@@ -10,10 +21,10 @@
 	// 	echo "f";
 	// }
 
-	
-
-	
-
+	$getid = $_GET['id'];
+		$showquery = 'SELECT * from post where id={$getid}';
+		$showdata = mysqli_query($con,$query);
+		$arraydat = mysqli_fetch_array($showdata);
 	
 
 	if (isset($_POST['submit'])) {
@@ -58,7 +69,8 @@
 			action="post.php" method="post">
 		
 				<label>Title:</label>
-				<input type="text" name="title" class="form-control">
+				<input type="text" name="title" value="<?php 
+				$arraydat['title']; ?>" class="form-control">
 
 				<label>Auther name:</label>
 				<input type="text" name="name" class="form-control">

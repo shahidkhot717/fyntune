@@ -15,8 +15,10 @@
 	
 
 	if (isset($_POST['submit'])) {
-		$email = $_POST['email'];
-		$password = $_POST['password'];
+
+		$email = mysqli_real_escape_string($con,$_POST['email']);
+		$password = mysqli_real_escape_string($con,$_POST['password']);
+		
 
 		$email_search = "SELECT * FROM `user` WHERE email='$email'";
 
@@ -64,6 +66,14 @@
 		
 				<label>Email:</label>
 				<input type="email" name="email" class="form-control">
+				<small><?php 
+				if (isset($_POST['submit'])) {
+					# code...
+				
+				if (empty($email) || empty($password)) {
+			echo " required";
+		}
+	}?></small><br>
 				
 				<label>Password:</label>
 				<input type="Password" name="password" class="form-control">

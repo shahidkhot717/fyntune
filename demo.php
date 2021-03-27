@@ -17,7 +17,7 @@
 </head>
 <body>
 	<?php include 'nav.php';?>
-	<h1 class="m-auto">Home</h1>
+	<h1>home</h1>
 	
 	
 
@@ -31,7 +31,21 @@ include 'connection.php';
 	$result = mysqli_query($con,$sql);
 
 	$no_of_result = mysqli_num_rows($result);
+// echo $no_of_result;
 
+// 	while ($row  = mysqli_fetch_array($result)) {
+// 		echo '<div class="container">';
+// 		echo '<div class="card" style="width: 18rem;">';
+		  
+// 		  echo '<div class="card-body">';
+// 		    echo '<h4 class="card-title">';
+// 		     echo $row['title'].' By ' .$row['username'].' </h4>';
+// 		    echo '<p class="card-text">'. $row['content'] .'</p>';
+// 		    echo '<a href="#" class="btn btn-danger">Delete</a>';
+// 		  echo '</div>';
+// 	echo '</div>';
+// echo '</div> <br>';
+// 	}
 
 
 	$no_of_pages = ceil($no_of_result/$result_per_page);
@@ -54,36 +68,30 @@ $result_per_page";
 $result = mysqli_query($con,$sql);
 $rows  = mysqli_fetch_assoc($result);
 	 $id = $rows['id'];
-?><?php
+?><table border="1">
+	<thead>
+		<th>title</th>
+		<th>auther</th>
+		<th>content</th>
+
+
+	</thead>
+	<tbody>
+<?php
 while ($row  = mysqli_fetch_assoc($result) ) {?>
-		<div class="container">
-		<div class="card m-auto" style="width: 18rem;">
-		  
-		  <div class="card-body">
-		  	<h4 class="card-title">
+		<tr><td><?php echo $row['title'];?></td>
+		<td><?php echo $row['username'];?></td>
+		<td><?php echo $row['content'];?></td>
+		<td><a href="update.php?id=<?php echo $row['id'];?>">edit</a></td>
+		<td><a href="delete.php?id=<?php echo $row['id'];?>">delete</a></td></tr>
 
-		     <?php echo $row['title'];?> Created By <?php echo $row['username']; ?>
-		     	
-		     </h4>
-		    <p class="card-text"><?php echo $row['content'] ;?></p>
-
-		    <small>Date Posted:<?php echo $row['date'];?></small>
-		    <a href="delete.php?id=<?php echo $row['id'];?>" class="btn btn-danger">Delete</a>
-		    <a href="delete.php?id=<?php echo $row['id'];?>" class="btn btn-primary">Edit</a> 
-
-		    
-		  </div>
-	</div>
-</div> <br>
-	<?php } 
-
-for($page = 1 ; $page<=$no_of_pages ; $page++){
-  	echo '<a href="home.php?page='. $page.'"> '.$page.'</a>';
-  } ?>
  
   
 
-  <?php include 'footer.php'?>
+  <?php } 
+for($page = 1 ; $page<=$no_of_pages ; $page++){
+  	echo '<a href="home.php?page='. $page.'"> '.$page.'</a>';
+  } include 'footer.php'?>
 
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

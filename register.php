@@ -8,8 +8,8 @@
 	// 	echo "f";
 		// }
 	if (isset($_POST['submit'])) {
-		$email = $_POST['email'];
-	$password = $_POST['password'];
+		$email = mysqli_real_escape_string($con,$_POST['email']);
+	$password = mysqli_real_escape_string($con,$_POST['password']);
 
 	$hash_pass = password_hash($password, PASSWORD_DEFAULT);
 	
