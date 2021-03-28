@@ -23,14 +23,15 @@
 	$content = mysqli_real_escape_string($con,$_POST['content']);
 	$date = date("Y-m-d H:i:s");
 	$username = mysqli_real_escape_string($con,$_POST['name']);
-	
+	$category = 
+	mysqli_real_escape_string($con,$_POST['category']);
 	// echo $date ;
 	// echo $username;
 	
 	
 	
 
-	$query = "INSERT INTO `post`( `title`, `username`, `content`, `date`) VALUES ('$title','$username','$content','$date')";
+	$query = "INSERT INTO `post`( `title`, `username`, `content`, `date`,`category`) VALUES ('$title','$username','$content','$date','$category')";
 
 
 
@@ -63,6 +64,9 @@
 
 				<label>Auther name:</label>
 				<input type="text" name="name" class="form-control">
+
+				<label>category:</label>
+				<input type="text" name="category" class="form-control">
 
 				
 				

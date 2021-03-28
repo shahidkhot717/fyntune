@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2021 at 01:42 PM
+-- Generation Time: Mar 28, 2021 at 11:37 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -33,30 +33,30 @@ CREATE TABLE `post` (
   `username` varchar(255) NOT NULL,
   `content` varchar(555) NOT NULL,
   `date` datetime(6) NOT NULL,
-  `image` varchar(255) NOT NULL
+  `image` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`id`, `title`, `username`, `content`, `date`, `image`) VALUES
-(11, 'emma', 'admin', 'command prompt.', '2021-03-27 09:38:04.000000', ''),
-(23, 'worldadmin', 'admin', 'admin admin\r\n', '2021-03-27 09:56:41.000000', ''),
-(24, 'movies ', 'warner bros', 'wonder women\r\n', '2021-03-27 11:16:30.000000', ''),
-(25, 'movies', 'marvel', 'avengers', '2021-03-27 11:16:46.000000', ''),
-(33, 'python', 'admin', 'python development', '2021-03-27 12:47:46.000000', ''),
-(34, 'python', 'admin', 'python development', '2021-03-27 12:48:21.000000', ''),
-(35, 'web development', 'admin', 'php,mytsql', '2021-03-27 12:48:38.000000', ''),
-(36, 'mobile', 'shahid', 'mi a2', '2021-03-27 12:49:01.000000', ''),
-(37, 'php ', 'admin', 'php,mysql', '2021-03-27 13:36:56.000000', ''),
-(38, 'photo', 'mountain', 'mount fuji', '2021-03-27 13:38:10.000000', ''),
-(39, 'ddddd', 'shahid', 'dddddd', '2021-03-27 13:38:26.000000', ''),
-(40, 'python', 'admin', 'dddddd', '2021-03-27 13:38:40.000000', ''),
-(41, 'java', 'admin', 'java', '2021-03-27 13:39:17.000000', ''),
-(42, 'aws', 'admin', 'amazon web service', '2021-03-27 13:39:45.000000', ''),
-(43, 'ssss', 'admin', 'fffffff', '2021-03-27 13:40:32.000000', ''),
-(44, 'mobiles', 'admin', 'mi,iphone', '2021-03-27 13:41:08.000000', '');
+INSERT INTO `post` (`id`, `title`, `username`, `content`, `date`, `image`, `category`) VALUES
+(52, 'book ', 'jose', 'java book', '2021-03-28 09:13:05.000000', '', 'books'),
+(53, 'football', 'ucl', 'gggggfgfhghikuj', '2021-03-28 09:14:51.000000', '', 'sports'),
+(54, 'football', 'admin ', 'gkjhkjhhjh', '2021-03-28 09:15:24.000000', '', 'sports'),
+(55, 'python', 'korin', 'python', '2021-03-28 09:15:42.000000', '', 'books'),
+(56, 'web development', 'michael', 'php', '2021-03-28 09:16:16.000000', '', 'books'),
+(57, 'mobile', 'iphone', 'iphone 12', '2021-03-28 09:16:59.000000', '', 'tech'),
+(58, 'mobile', 'iphone', 'iphone 12', '2021-03-28 09:18:10.000000', '', 'tech'),
+(59, 'cricket', 'icc', 'ind vs end', '2021-03-28 11:33:10.000000', '', 'sports'),
+(60, 'mobile', 'samsung', 'samsung galaxy a1', '2021-03-28 11:34:07.000000', '', 'tech'),
+(61, 'football', 'u', '', '2021-03-28 11:34:14.000000', '', ''),
+(62, 'football', 'ucl', 'jjjjjjj', '2021-03-28 11:34:28.000000', '', 'sports'),
+(63, 'books', 'john', 'python book', '2021-03-28 11:35:10.000000', '', 'books'),
+(64, 'backend development', 'cena', 'php development', '2021-03-28 11:35:48.000000', '', 'books'),
+(65, 'mobile', 'admin', 'iphone,mi,one plus', '2021-03-28 11:36:14.000000', '', 'tech'),
+(66, 'laptop', 'shahid', 'lenovo g 510', '2021-03-28 11:36:38.000000', '', 'tech');
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `user`
